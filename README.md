@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# chatbot-portfolio
 
-## Getting Started
+小規模店舗向け（美容室・整体・サロン・個人飲食店など）のチャットボット導入支援を想定した、ポートフォリオ用デモです。  
+ユーザーの質問に Claude が日本語で回答し、個別相談は Google フォームへ誘導します。
 
-First, run the development server:
+## デモで見せるポイント
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 店舗向けの問い合わせ（営業時間、料金、予約、アクセス）に自然な回答
+- 相談フォームへの導線（`相談フォームを開く` ボタン）
+- 導入設計と FAQ 整備を軸にした支援イメージ
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## セットアップ
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 依存関係を入れる
+   - `npm install`
+2. `.env` を用意する
+   - `.env.example` をコピーし、`ANTHROPIC_API_KEY` / `CONTACT_FORM_URL` を設定
+3. 開発サーバー起動
+   - `npm run dev`
+4. ブラウザで確認
+   - [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## デモ質問例（動画撮影にも利用可）
 
-## Learn More
+- `美容室向けに導入する場合の最初のステップを教えてください`
+- `整体院でよくある問い合わせを FAQ 化するなら、何から始めるべきですか？`
+- `個人居酒屋で営業時間外の問い合わせを減らすにはどう設計すればいいですか？`
+- `個別相談したいので、問い合わせ方法を教えてください`
 
-To learn more about Next.js, take a look at the following resources:
+## ポートフォリオ掲載テンプレ
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- デモURL: `https://...`
+- GitHub: `https://github.com/...`
+- デモ動画（1〜2分）: `https://...`
+- 対象業種: 美容室 / 整体 / サロン / 個人飲食店
+- 支援内容: 導入設計 / FAQ整備 / 初期運用ルール作成
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 補足
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 運用メモ・トラブル対応: `CLAUDE.md`
+- API キーは `.env` のみで管理し、コミットしないこと
