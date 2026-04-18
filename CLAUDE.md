@@ -22,6 +22,7 @@ npm run lint
 | `CONTACT_FORM_URL` | 推奨 | 相談用フォームの URL |
 | `SERVICE_CONTEXT` | 任意 | サービス説明（未設定時はプレースホルダー） |
 | `ANTHROPIC_MODEL` | 任意 | 既定は `claude-sonnet-4-20250514` |
+| `ANTHROPIC_MAX_TOKENS` | 任意 | 既定は `700`（返答が短い／長い場合に調整） |
 
 ## 構成
 

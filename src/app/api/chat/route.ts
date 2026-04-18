@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
+import { splitAssistantChoiceBlock } from "@/lib/assistant-choice-block";
 import { buildSystemPrompt } from "@/lib/system-prompt";
 
 /** 1メッセージあたりの最大文字数（過大リクエスト防止） */
@@ -68,21 +69,32 @@ export async function POST(request: Request) {
   const model =
     process.env.ANTHROPIC_MODEL?.trim() || "claude-sonnet-4-20250514";
 
+  const maxTokensRaw = process.env.ANTHROPIC_MAX_TOKENS?.trim();
+  const maxTokensParsed = maxTokensRaw ? Number.parseInt(maxTokensRaw, 10) : NaN;
+  const max_tokens =
+    Number.isFinite(maxTokensParsed) && maxTokensParsed > 200
+      ? Math.min(maxTokensParsed, 4096)
+      : 700;
+
   const anthropic = new Anthropic({ apiKey });
 
   try {
     const response = await anthropic.messages.create({
       model,
-      max_tokens: 2048,
+      max_tokens,
       system: buildSystemPrompt(),
       messages,
     });
 
     const block = response.content.find((b) => b.type === "text");
-    const text =
+    const raw =
       block && block.type === "text" ? block.text : "（空の応答でした）";
+    const { displayText, choices } = splitAssistantChoiceBlock(raw);
 
-    return NextResponse.json({ text });
+    const payload: { text: string; choices?: string[] } = { text: displayText };
+    if (choices?.length) payload.choices = choices;
+
+    return NextResponse.json(payload);
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     console.error("[api/chat]", msg);
