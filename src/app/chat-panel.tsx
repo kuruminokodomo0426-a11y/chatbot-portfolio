@@ -193,7 +193,7 @@ export default function ChatPanel({ contactFormHref }: ChatPanelProps) {
             key={`${i}-${m.role}`}
             className={
               m.role === "user"
-                ? "ml-8 rounded-2xl border border-teal-600/20 bg-teal-500 px-4 py-3 text-sm text-white shadow-sm shadow-teal-600/20"
+                ? "ml-8 rounded-2xl border border-teal-800/20 bg-teal-700 px-4 py-3 text-sm text-white shadow-sm shadow-teal-800/20"
                 : "mr-8 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-800"
             }
           >
