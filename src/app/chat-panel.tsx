@@ -153,15 +153,16 @@ export default function ChatPanel({ contactFormHref }: ChatPanelProps) {
       {contactFormHref ? (
         <div className="border-b border-teal-100 px-4 py-2 text-center text-xs text-slate-600 sm:px-6">
           個別のご相談は{" "}
-          <a
-            href={contactFormHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-teal-600 underline-offset-2 hover:text-teal-700 hover:underline"
+          <span
+            className="cursor-not-allowed font-medium text-slate-400 line-through"
+            title="ポートフォリオ用デモのため、現在フォームは受け付けておりません"
           >
             相談フォーム
-          </a>
+          </span>
           からどうぞ
+          <span className="mt-1 block text-slate-400">
+            ※ ポートフォリオ用デモのため、フォームへのリンクは無効になっています
+          </span>
         </div>
       ) : null}
       <div
