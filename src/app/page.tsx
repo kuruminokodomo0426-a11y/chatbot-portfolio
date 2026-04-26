@@ -25,20 +25,17 @@ export default function Home() {
               相談内容に合わせて、導入計画・体制づくり・運用設計までを分かりやすく提案します。AI（Claude）によるデモ会話をそのまま体験できます。
             </p>
           </div>
-          {contactFormHref ? (
-            <a
-              href={contactFormHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 shrink-0 items-center justify-center rounded-xl bg-teal-500 px-4 text-sm font-medium text-white shadow-md shadow-teal-600/25 transition hover:bg-teal-600"
+          <div className="flex flex-col items-end gap-1">
+            <span
+              className="inline-flex h-10 shrink-0 cursor-not-allowed items-center justify-center rounded-xl bg-slate-300 px-4 text-sm font-medium text-slate-500 shadow-md"
+              title="ポートフォリオ用デモのため、現在フォームは受け付けておりません"
             >
               相談フォームを開く
-            </a>
-          ) : (
-            <p className="max-w-xs text-xs leading-relaxed text-amber-800">
-              `.env` の CONTACT_FORM_URL に https のフォームURLを設定すると、ここにボタンが表示されます。
+            </span>
+            <p className="text-xs text-slate-400">
+              ※ ポートフォリオ用デモのため、ボタンは無効になっています
             </p>
-          )}
+          </div>
         </div>
       </header>
 
