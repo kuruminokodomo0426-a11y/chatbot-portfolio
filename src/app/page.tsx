@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
  * ポートフォリオ用チャットのトップページ（サーバーコンポーネント）
  */
 export default function Home() {
-  const contactFormHref = getPublicFormHref(process.env.CONTACT_FORM_URL);
+  const contactFormHref = null; // ポートフォリオのため相談フォームを非表示
 
   return (
     <div className="flex min-h-0 flex-1 flex-col bg-gradient-to-b from-white via-cyan-50/40 to-white">
